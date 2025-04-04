@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/header::section-header(title=edit)}">
+</head>
+<body>
+<header th:replace="~{fragments/header::section-navbar}"/>
+
+    <main class="container">
+        <br>
+        <h2> Edit your information</h2>
+
+        <form action="/edit" th:object="${contact}" method="post">
+            <div class="mb-3">
+                <input type="hidden" class="form-control" name="id" th:field="*{id}" required>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" th:field="*{name}" required>
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" >
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" th:field="*{phone}"  required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" th:field="*{email}"  required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary">Return</button>
+        </form>
+    </main>
+
+<div th:replace="~{fragments/footer::section-footer}"/>
+
+</body>
+</html>
